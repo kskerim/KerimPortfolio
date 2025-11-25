@@ -1,35 +1,42 @@
 import React from 'react';
 import { 
   SiHtml5, SiJavascript, SiTypescript, SiReact, SiAngular, SiVuedotjs, SiNextdotjs,
-  SiBootstrap, SiTailwindcss, SiPython, SiPhp, SiKotlin, SiMysql, SiMongodb,
-  SiAmazon, SiSymfony, SiGit, SiDocker, SiWordpress, SiVscodium,
-  SiJirasoftware
+  SiBootstrap, SiTailwindcss, SiVite, SiFigma, SiAdobexd, SiPython, SiPhp, 
+  SiKotlin, SiMysql, SiMongodb, SiAmazon, SiSymfony, SiGit, SiDocker, 
+  SiWordpress, SiVscodium, SiJirasoftware
 } from 'react-icons/si';
 import { FaGitlab } from 'react-icons/fa';
 
 interface Categorie {
   titre: string;
-  type: 'frontend' | 'backend' | 'outils';
+  type: 'code' | 'ux' | 'backend' | 'outils';
   items: string[];
 }
 
 const categories: Categorie[] = [
   {
-    titre: 'Frontend',
-    type: 'frontend',
+    titre: 'Front-end',
+    type: 'code',
     items: [
-      'HTML/CSS', 'JavaScript', 'TypeScript', 'React', 'Angular', 'Vue.js', 'Next.js', 'Bootstrap', 'Tailwind CSS'
+      'HTML/CSS', 'JavaScript', 'TypeScript', 'React', 'Angular', 'Vue.js', 'Next.js', 'Vite', 'Bootstrap', 'Tailwind CSS'
     ]
   },
   {
-    titre: 'Backend',
+    titre: 'Back-end',
     type: 'backend',
     items: [
       'Python', 'PHP', 'C#', 'Kotlin', 'MySQL', 'MongoDB', 'AWS', 'Symfony'
     ]
   },
   {
-    titre: 'Outils & Utilitaires',
+    titre: 'UX/UI Design',
+    type: 'ux',
+    items: [
+      'Figma', 'Adobe XD', 'Prototyping', 'Wireframing', 'Design System'
+    ]
+  },
+  {
+    titre: 'Outils & Méthodologies',
     type: 'outils',
     items: [
       'Git/GitHub', 'Docker', 'CI/CD', 'Agile', 'Scrum', 'WordPress', 'SEO', 'VS Code', 'Jira'
@@ -80,10 +87,20 @@ function getIconFor(label: string) {
       return SiVuedotjs;
     case 'Next.js':
       return SiNextdotjs;
+    case 'Vite':
+      return SiVite;
     case 'Bootstrap':
       return SiBootstrap;
     case 'Tailwind CSS':
       return SiTailwindcss;
+    case 'Figma':
+      return SiFigma;
+    case 'Adobe XD':
+      return SiAdobexd;
+    case 'Prototyping':
+    case 'Wireframing':
+    case 'Design System':
+      return undefined;
     case 'Python':
       return SiPython;
     case 'PHP':

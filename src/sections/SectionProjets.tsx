@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 
 interface Projet {
   titre: string;
@@ -12,21 +12,21 @@ const projetsMiniJeux: Projet[] = [
   {
     titre: 'Jeu Mémoire (Cartes)',
     description: 'Petit jeu JavaScript pour entraîner la mémoire avec un système de paires et compteur de coups.',
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=60',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=60',
     tags: ['JavaScript', 'CSS Grid', 'Logic'],
     lien: '#'
   },
   {
     titre: 'Snake Canvas',
     description: 'Implémentation du classique Snake en Canvas avec augmentation progressive de la vitesse.',
-    image: 'https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&w=800&q=60',
+    image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=60',
     tags: ['Canvas', 'Game Loop', 'Vanilla JS'],
     lien: '#'
   },
   {
     titre: 'Click Speed Challenge',
     description: 'Mini-jeu pour mesurer la vitesse de clic avec classement local (localStorage).',
-    image: 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?auto=format&fit=crop&w=800&q=60',
+    image: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=60',
     tags: ['TypeScript', 'Performance', 'UX'],
     lien: '#'
   }
@@ -36,28 +36,28 @@ const projetsPros: Projet[] = [
   {
     titre: 'Dashboard Visualisation de Données',
     description: 'Projet universitaire Full-Stack pour la visualisation de données complexes avec interface interactive.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60',
+    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=60',
     tags: ['React', 'D3.js', 'Node.js', 'MongoDB'],
     lien: '#'
   },
   {
     titre: 'Interface UX/UI Design',
-    description: 'Conception d’interfaces utilisateur modernes avec Figma, prototypage et tests d’utilisabilité.',
-    image: 'https://images.unsplash.com/photo-1559027615-5c5083b90de1?auto=format&fit=crop&w=800&q=60',
+    description: 'Conception d\'interfaces utilisateur modernes avec Figma, prototypage et tests d\'utilisabilité.',
+    image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60',
     tags: ['Figma', 'Adobe XD', 'Prototyping', 'UX Research'],
     lien: '#'
   },
   {
     titre: 'Application Mobile Fitness',
-    description: 'Suivi d’activités, génération de plans personnalisés et visualisation des progrès.',
-    image: 'https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=800&q=60',
+    description: 'Suivi d\'activités, génération de plans personnalisés et visualisation des progrès.',
+    image: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=800&q=60',
     tags: ['React Native', 'TypeScript', 'API'],
     lien: '#'
   },
   {
     titre: 'Site Événementiel Responsive',
     description: 'Landing page performante avec animations légères et optimisation SEO.',
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=60',
+    image: 'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=800&q=60',
     tags: ['Vite', 'SEO', 'Accessibility'],
     lien: '#'
   }
@@ -79,7 +79,7 @@ export function SectionProjets() {
           aria-pressed={vue === 'mini'}
           aria-label={vue === 'pro' ? 'Afficher les mini-jeux' : 'Afficher les projets professionnels'}
         >
-          <span>{vue === 'pro' ? '⇄ Voir Mini‑jeux' : '⇄ Voir Pro / Académiques'}</span>
+          <span>{vue === 'pro' ? ' Voir Minijeux' : ' Voir Pro / Académiques'}</span>
         </button>
       </div>
 
