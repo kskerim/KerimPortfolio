@@ -546,6 +546,54 @@ a:hover { color: var(--couleur-primaire); }
   padding:.9rem 2rem .95rem;
 }
 
+/* Message de succès global (en haut de la page) */
+.message-succes-global {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  padding: 1rem 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+  animation: slideDownBounce 0.5s ease-out;
+  max-width: 90%;
+  width: auto;
+  opacity: 1;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.message-succes-global.fade-out {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+.message-succes-global svg {
+  flex-shrink: 0;
+  stroke-width: 2.5;
+}
+.message-succes-global span {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+@keyframes slideDownBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(5px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 @media (max-width: 700px) {
 	.carte-contact { padding:1.4rem 1.3rem 1.6rem; border-radius:16px; }
 	.carte-contact h3 { font-size:1.05rem; }

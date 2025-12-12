@@ -5,6 +5,7 @@ export function SectionContact() {
     <section id="contact" className="section section-contact section-centre">
       <h2 className="titre-section">Contactez-moi</h2>
       <p className="intro-contact">Intéressé par une collaboration ? N'hésitez pas à me contacter pour discuter de vos projets et idées.</p>
+      
       <div className="grille-contact">
         {/* Carte infos */}
         <div className="carte-contact infos">
@@ -60,24 +61,30 @@ export function SectionContact() {
         {/* Carte formulaire */}
         <div className="carte-contact formulaire">
           <h3>Envoyez-moi un message</h3>
-          <form onSubmit={(e) => { e.preventDefault(); alert('Fonctionnalité prochaine : envoi de message.'); }} className="form-contact">
+          <form action="https://formsubmit.co/KerimKsKc7@gmail.com" method="POST" className="form-contact">
+            {/* Configuration FormSubmit */}
+            <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="http://localhost:5174/?success=true" />
+            <input type="hidden" name="_template" value="table" />
+            
             <div className="ligne-champs deux">
               <div className="champ">
                 <label htmlFor="nom">Nom</label>
-                <input id="nom" name="nom" type="text" autoComplete="name" placeholder="Votre nom" />
+                <input id="nom" name="nom" type="text" autoComplete="name" placeholder="Votre nom" required />
               </div>
               <div className="champ">
                 <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" autoComplete="email" placeholder="vous@exemple.com" />
+                <input id="email" name="email" type="email" autoComplete="email" placeholder="vous@exemple.com" required />
               </div>
             </div>
             <div className="champ">
               <label htmlFor="sujet">Sujet</label>
-              <input id="sujet" name="sujet" type="text" placeholder="Sujet du message" />
+              <input id="sujet" name="sujet" type="text" placeholder="Sujet du message" required />
             </div>
             <div className="champ">
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows={5} placeholder="Votre message..."></textarea>
+              <textarea id="message" name="message" rows={5} placeholder="Votre message..." required></textarea>
             </div>
             <div className="actions-form">
               <button type="submit" className="btn-accent large"><span>Envoyer le message</span></button>
