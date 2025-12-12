@@ -65,7 +65,7 @@ export function SectionContact() {
             {/* Configuration FormSubmit */}
             <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="http://localhost:5174/?success=true" />
+            <input type="hidden" name="_next" value="https://kerim-portfolio-drab.vercel.app/?success=true" />
             <input type="hidden" name="_template" value="table" />
             
             <div className="ligne-champs deux">
