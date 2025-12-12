@@ -12,6 +12,73 @@ interface LigneChrono {
 
 const lignes: LigneChrono[] = [
   {
+    type: 'formation',
+    titre: 'BAC STMG (Option RH)',
+    organisation: 'Lycée Jean-Jacques Rousseau',
+    periode: '2018 - 2021',
+    details: ['Sciences et Technologies du Management et de la Gestion.']
+  },
+  {
+    type: 'formation',
+    titre: 'BUT Métiers du Multimédia et de l\'Internet',
+    organisation: 'CY Cergy Paris Université',
+    periode: 'Sept. 2022 - Sept. 2025',
+    details: [
+      'Parcours développement web et dispositifs interactifs.',
+      'Validation et acquisition du BUT (Bac+3).'
+    ]
+  },
+  {
+    type: 'experience',
+    titre: 'Stage Développeur paramétreur',
+    organisation: 'Atexo',
+    periode: 'Avril - Août 2024',
+    details: ['Passer votre souris pour en savoir plus'],
+    missions: [
+      'Paramétrage de formulaires subventions et animation d\'ateliers (JavaScript)',
+      'Vidéoconférences avec les représentants régionaux pour recueillir les attentes et retours',
+      'Saisie et suivi des données pour la maintenance',
+      'Coordination des équipes et respect des délais',
+      'Suivi qualité pour garantir la conformité des projets'
+    ]
+  },
+  {
+    type: 'experience',
+    titre: 'Stage Développeur web',
+    organisation: 'Olmeta',
+    periode: 'Sept. 2024 - Mars 2025',
+    details: ['Passer votre souris pour en savoir plus'],
+    missions: [
+      'Développement web en JavaScript, HTML, CSS',
+      'Gestion et optimisation de sites sous WordPress',
+      'Supervision et maintenance des infrastructures informatiques des services',
+      'Mise en place et suivi de stratégies SEO pour améliorer la visibilité des plateformes web',
+      'Gestion et animation des réseaux sociaux des différentes entités du groupe'
+    ]
+  },
+  {
+    type: 'experience',
+    titre: 'Stage Chef de projet web',
+    organisation: "Au Boudoir D'Hilal",
+    periode: 'Mars 2025 - Sept. 2025',
+    details: ['Passer votre souris pour en savoir plus'],
+    missions: [
+      'Gestion de projets web sur WordPress (refonte, contenus, suivi)',
+      'Création de maquettes sur Figma selon les besoins clients',
+      'Suivi des étapes clés et coordination des intervenants',
+      'Optimisation UX/UI des interfaces',
+      'Intégration basique HTML, CSS, JavaScript',
+      'Proposition de solutions concrètes pour améliorer les sites'
+    ]
+  },
+  {
+    type: 'formation',
+    titre: 'Mastère Expert Développement Web',
+    organisation: 'ESGI',
+    periode: 'Sept. 2026 (à venir)',
+    details: ['Préparation de ma rentrée pour septembre 2026.']
+  },
+  {
     type: 'experience',
     titre: 'Conseiller de vente & accueil clientèle',
     organisation: 'Parc Astérix',
@@ -27,87 +94,6 @@ const lignes: LigneChrono[] = [
       'Travail en équipe dans un environnement dynamique'
     ],
     horsBUT: true
-  },
-  {
-    type: 'experience',
-    titre: 'Chef de projet web',
-    organisation: "Au Boudoir D'Hilal",
-    periode: 'Mars 2025 - Sept. 2025',
-    details: ['Passer votre souris pour en savoir plus'],
-    missions: [
-      'Gestion de projets web sur WordPress (refonte, contenus, suivi)',
-      'Création de maquettes sur Figma selon les besoins clients',
-      'Suivi des étapes clés et coordination des intervenants',
-      'Optimisation UX/UI des interfaces',
-      'Intégration basique HTML, CSS, JavaScript',
-      'Proposition de solutions concrètes pour améliorer les sites'
-    ]
-  },
-  {
-    type: 'experience',
-    titre: 'Développeur web',
-    organisation: 'Olmeta',
-    periode: 'Sept. 2024 - Mars 2025',
-    details: ['Passer votre souris pour en savoir plus'],
-    missions: [
-      'Développement web en JavaScript, HTML, CSS',
-      'Gestion et optimisation de sites sous WordPress',
-      'Supervision et maintenance des infrastructures informatiques des services',
-      'Mise en place et suivi de stratégies SEO pour améliorer la visibilité des plateformes web',
-      'Gestion et animation des réseaux sociaux des différentes entités du groupe'
-    ]
-  },
-  {
-    type: 'experience',
-    titre: 'Développeur paramétreur',
-    organisation: 'Atexo',
-    periode: 'Avril - Août 2024',
-    details: ['Passer votre souris pour en savoir plus'],
-    missions: [
-      'Paramétrage de formulaires subventions et animation d\'ateliers (JavaScript)',
-      'Vidéoconférences avec les représentants régionaux pour recueillir les attentes et retours',
-      'Saisie et suivi des données pour la maintenance',
-      'Coordination des équipes et respect des délais',
-      'Suivi qualité pour garantir la conformité des projets'
-    ]
-  },
-  {
-    type: 'experience',
-    titre: 'Projet universitaire - Développeur Full-Stack',
-    organisation: 'Projet Universitaire',
-    periode: 'Novembre 2023',
-    details: ['Passer votre souris pour en savoir plus'],
-    missions: [
-      'Site web réalisé en HTML, CSS, JS (Chart.js, JSON)',
-      'Données modélisées et traitées pour une meilleure structuration',
-      'Mise en place de tests unitaires',
-      'Intégration continue pour optimiser les livraisons',
-      'Collaboration via Git pour le suivi de version'
-    ]
-  },
-  {
-    type: 'formation',
-    titre: 'Mastère Expert Développement Web',
-    organisation: 'ESGI',
-    periode: 'Sept. 2026 (à venir)',
-    details: ['Préparation de ma rentrée pour septembre 2026.']
-  },
-  {
-    type: 'formation',
-    titre: 'BUT Métiers du Multimédia et de l\'Internet',
-    organisation: 'CY Cergy Paris Université',
-    periode: 'Sept. 2022 - Sept. 2025',
-    details: [
-      'Parcours développement web et dispositifs interactifs.',
-      'Validation et acquisition du BUT (Bac+3).'
-    ]
-  },
-  {
-    type: 'formation',
-    titre: 'BAC STMG (Option RH)',
-    organisation: 'Lycée Jean-Jacques Rousseau',
-    periode: '2018 - 2021',
-    details: ['Sciences et Technologies du Management et de la Gestion.']
   }
 ];
 
@@ -208,7 +194,7 @@ export function SectionExperienceFormation() {
         </div>
       )}
       <div className="centre-action">
-        <a href="/cv.pdf" className="btn-accent" download><span>Télécharger CV</span></a>
+        <a href="/Cv_Kerim_Kasikci.pdf" className="btn-accent" target="_blank" rel="noopener noreferrer"><span>Voir mon CV</span></a>
       </div>
     </section>
   );

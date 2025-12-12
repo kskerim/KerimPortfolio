@@ -19,7 +19,7 @@ export function SectionContact() {
                 </svg>
               </span>
               <div>
-                <a href="mailto:KerimKsKc7@gmail.com">KerimKsKc7@gmail.com</a>
+                <span>KerimKsKc7@gmail.com</span>
               </div>
             </li>
             <li>
