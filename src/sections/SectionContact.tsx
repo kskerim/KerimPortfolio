@@ -1,6 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 export function SectionContact() {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showShooting, setShowShooting] = useState(false);
+  const [formData, setFormData] = useState<FormData | null>(null);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    
+    // Ajouter les champs FormSubmit
+    data.append('_subject', 'Nouveau message depuis votre portfolio');
+    data.append('_captcha', 'false');
+    data.append('_template', 'table');
+    
+    setFormData(data);
+    setShowConfirmation(true);
+  };
+
+  const confirmSend = async () => {
+    if (!formData) return;
+    
+    setShowConfirmation(false);
+    setShowShooting(true);
+
+    // Envoyer le formulaire
+    try {
+      await fetch('https://formsubmit.co/KerimKsKc7@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      // Attendre la fin de l'animation (4s)
+      setTimeout(() => {
+        setShowShooting(false);
+        // Scroll smooth vers le haut puis redirection
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          window.location.href = 'https://kerim-portfolio-drab.vercel.app/?success=true';
+        }, 800);
+      }, 4000);
+    } catch (error) {
+      setShowShooting(false);
+      alert('Erreur lors de l\'envoi du message');
+    }
+  };
+
+  const cancelSend = () => {
+    setShowConfirmation(false);
+    setFormData(null);
+  };
+
   return (
     <section id="contact" className="section section-contact section-centre">
       <h2 className="titre-section">Contactez-moi</h2>
@@ -61,13 +115,7 @@ export function SectionContact() {
         {/* Carte formulaire */}
         <div className="carte-contact formulaire">
           <h3>Envoyez-moi un message</h3>
-          <form action="https://formsubmit.co/KerimKsKc7@gmail.com" method="POST" className="form-contact">
-            {/* Configuration FormSubmit */}
-            <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://kerim-portfolio-drab.vercel.app/?success=true" />
-            <input type="hidden" name="_template" value="table" />
-            
+          <form onSubmit={handleSubmit} className="form-contact">
             <div className="ligne-champs deux">
               <div className="champ">
                 <label htmlFor="nom">Nom</label>
@@ -92,6 +140,29 @@ export function SectionContact() {
           </form>
         </div>
       </div>
+
+      {/* Modale de confirmation */}
+      {showConfirmation && createPortal(
+        <div className="modale-overlay" onClick={cancelSend}>
+          <div className="modale-confirmation" onClick={(e) => e.stopPropagation()}>
+            <h3>Confirmer l'envoi</h3>
+            <p>Voulez-vous vraiment envoyer ce message ?</p>
+            <div className="modale-actions">
+              <button className="btn-annuler" onClick={cancelSend}>Annuler</button>
+              <button className="btn-confirmer" onClick={confirmSend}>Confirmer</button>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Animation étoile filante */}
+      {showShooting && createPortal(
+        <div className="shooting-star-overlay">
+          <div className="shooting-star"></div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 }

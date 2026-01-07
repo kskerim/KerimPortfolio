@@ -19,8 +19,6 @@ export default function App() {
     if (urlParams.get('success') === 'true') {
       setMessageEnvoye(true);
       setFadeOut(false);
-      // Scroll en haut de la page
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       // Nettoyer l'URL
       window.history.replaceState({}, '', window.location.pathname);
       // Commencer le fade out après 4.4 secondes
