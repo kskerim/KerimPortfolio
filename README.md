@@ -117,8 +117,8 @@ Projet personnel - Tous droits réservés © 2025 Kerim Kasikci
 
 ## Contact
 
-- **Email** : [Ton email]
-- **LinkedIn** : [Ton LinkedIn]
+- **Email** : kerimkskc7@gmail.com
+- **LinkedIn** : Kerim Kasikci
 - **GitHub** : [@kskerim](https://github.com/kskerim)
 
 ---
