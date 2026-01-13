@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   SiHtml5, SiJavascript, SiTypescript, SiReact, SiAngular, SiVuedotjs, SiNextdotjs,
   SiBootstrap, SiTailwindcss, SiVite, SiFigma, SiAdobexd, SiPython, SiPhp, 
-  SiKotlin, SiMysql, SiMongodb, SiAmazon, SiSymfony, SiGit, SiDocker, 
+  SiKotlin, SiMysql, SiMongodb, SiSymfony, SiGit, 
   SiWordpress, SiVscodium, SiJirasoftware
 } from 'react-icons/si';
 import { FaGitlab } from 'react-icons/fa';
@@ -25,21 +25,21 @@ const categories: Categorie[] = [
     titre: 'Back-end',
     type: 'backend',
     items: [
-      'Python', 'PHP', 'C#', 'Kotlin', 'MySQL', 'MongoDB', 'AWS', 'Symfony'
+      'Python', 'PHP', 'C#', 'Kotlin', 'MySQL', 'MongoDB', 'Symfony'
     ]
   },
   {
     titre: 'UX/UI Design',
     type: 'ux',
     items: [
-      'Figma', 'Adobe XD', 'Prototyping', 'Wireframing', 'Design System'
+      'Figma', 'Adobe XD', 'Prototyping', 'Wireframing'
     ]
   },
   {
     titre: 'Outils & Méthodologies',
     type: 'outils',
     items: [
-      'Git/GitHub', 'Docker', 'CI/CD', 'Agile', 'Scrum', 'WordPress', 'SEO', 'VS Code', 'Jira'
+      'Git/GitHub', 'CI/CD', 'Agile', 'Scrum', 'WordPress', 'SEO', 'VS Code', 'Jira'
     ]
   }
 ];
@@ -99,7 +99,6 @@ function getIconFor(label: string) {
       return SiAdobexd;
     case 'Prototyping':
     case 'Wireframing':
-    case 'Design System':
       return undefined;
     case 'Python':
       return SiPython;
@@ -113,14 +112,10 @@ function getIconFor(label: string) {
       return SiMysql;
     case 'MongoDB':
       return SiMongodb;
-    case 'AWS':
-      return SiAmazon;
     case 'Symfony':
       return SiSymfony;
     case 'Git/GitHub':
       return SiGit;
-    case 'Docker':
-      return SiDocker;
     case 'CI/CD':
       return FaGitlab; // pipeline icon
     case 'Agile':

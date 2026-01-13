@@ -82,7 +82,7 @@ const lignes: LigneChrono[] = [
     type: 'experience',
     titre: 'Conseiller de vente & accueil clientèle',
     organisation: 'Parc Astérix',
-    periode: 'Oct. 2025 - Auj.',
+    periode: 'Oct. 2025 - Janv. 2026',
     details: ['Passer votre souris pour en savoir plus'],
     missions: [
       'Accueil et conseil personnalisé aux visiteurs',
