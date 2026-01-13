@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 
 interface Props {
   activeId?: string;
@@ -10,7 +10,7 @@ const liens = [
   { id: 'competences', label: 'Compétences', icon: 'code' },
   { id: 'experience-formation', label: 'Parcours', icon: 'briefcase' },
   { id: 'contact', label: 'Contact', icon: 'mail' }
-];
+] as const;
 
 const icons: Record<string, JSX.Element> = {
   home: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
@@ -22,9 +22,8 @@ const icons: Record<string, JSX.Element> = {
 
 export function Navigation({ activeId }: Props) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const dockRef = useRef<HTMLUListElement>(null);
 
-  const defiler = (id: string) => {
+  const defiler = useCallback((id: string) => {
     if (id === 'accueil') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -35,7 +34,7 @@ export function Navigation({ activeId }: Props) {
         window.scrollTo({ top: elementPosition - headerHeight, behavior: 'smooth' });
       }
     }
-  };
+  }, []);
 
   const getScale = (index: number) => {
     if (hoveredIndex === null) return 1;
@@ -60,7 +59,6 @@ export function Navigation({ activeId }: Props) {
       </div>
       <nav className="dock-nav">
         <ul 
-          ref={dockRef} 
           className="dock-menu"
           onMouseLeave={() => setHoveredIndex(null)}
         >

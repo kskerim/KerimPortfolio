@@ -106,7 +106,7 @@ function getIconFor(label: string) {
     case 'PHP':
       return SiPhp;
     case 'C#':
-      return SiKotlin; // placeholder (no direct C# in simple-icons)
+      return SiKotlin; // placeholder
     case 'Kotlin':
       return SiKotlin;
     case 'MySQL':
@@ -122,14 +122,14 @@ function getIconFor(label: string) {
     case 'Docker':
       return SiDocker;
     case 'CI/CD':
-      return FaGitlab; // approximate pipeline icon
+      return FaGitlab; // pipeline icon
     case 'Agile':
     case 'Scrum':
-      return FaGitlab; // generic process placeholder
+      return FaGitlab; // process placeholder
     case 'WordPress':
       return SiWordpress;
     case 'SEO':
-      return SiWordpress; // placeholder
+      return SiWordpress; // cms placeholder
     case 'VS Code':
       return SiVscodium;
     case 'Jira':

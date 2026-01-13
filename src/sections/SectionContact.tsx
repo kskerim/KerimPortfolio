@@ -10,7 +10,7 @@ export function SectionContact() {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     
-    // Ajouter les champs FormSubmit
+    // ajouter les champs formsubmit
     data.append('_subject', 'Nouveau message depuis votre portfolio');
     data.append('_captcha', 'false');
     data.append('_template', 'table');
@@ -25,7 +25,7 @@ export function SectionContact() {
     setShowConfirmation(false);
     setShowShooting(true);
 
-    // Envoyer le formulaire
+    // envoyer le formulaire
     try {
       await fetch('https://formsubmit.co/KerimKsKc7@gmail.com', {
         method: 'POST',
@@ -35,10 +35,10 @@ export function SectionContact() {
         }
       });
 
-      // Attendre la fin de l'animation (4s)
+      // attendre la fin de l'animation
       setTimeout(() => {
         setShowShooting(false);
-        // Scroll smooth vers le haut puis redirection
+        // scroll puis redirection
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(() => {
           window.location.href = 'https://kerim-portfolio-drab.vercel.app/?success=true';

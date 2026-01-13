@@ -1,59 +1,97 @@
 import React, { useEffect, useRef } from 'react';
 
-// Fond canvas discret avec particules qui suivent légèrement la souris.
+// fond canvas discret avec particules qui suivent légèrement la souris
 export function FondInteractif() {
   const ref = useRef<HTMLCanvasElement | null>(null);
+
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
     let animationId: number;
-    const particules = Array.from({ length: 40 }, () => ({
+    const PARTICLE_COLOR = 'rgba(82,113,255,0.25)';
+    const BG_COLOR = 'rgba(28,31,78,0.03)';
+    const ATTRACTION_RADIUS_SQ = 700 * 700; // évite sqrt à chaque frame
+    const ATTRACTION_RADIUS = 700;
+
+    const particules = Array.from({ length: 180 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      r: 1 + Math.random() * 2,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2
+      r: 1 + Math.random() * 2.5,
+      vx: (Math.random() - 0.5) * 0.15,
+      vy: (Math.random() - 0.5) * 0.15,
+      baseX: Math.random() * window.innerWidth,
+      baseY: Math.random() * window.innerHeight
     }));
+
     const souris = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
     const redim = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      for (const p of particules) {
+        p.baseX = Math.random() * canvas.width;
+        p.baseY = Math.random() * canvas.height;
+      }
     };
-    redim();
-    window.addEventListener('resize', redim);
+
     const survol = (e: MouseEvent) => {
       souris.x = e.clientX;
       souris.y = e.clientY;
     };
-    window.addEventListener('mousemove', survol);
+
     function dessiner() {
       if (!canvas || !ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(28,31,78,0.03)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      particules.forEach(p => {
-        // attraction douce vers la souris
-        p.x += p.vx + (souris.x - p.x) * 0.0005;
-        p.y += p.vy + (souris.y - p.y) * 0.0005;
-  if (p.x < 0) p.x = canvas.width;
-  if (p.x > canvas.width) p.x = 0;
-  if (p.y < 0) p.y = canvas.height;
-  if (p.y > canvas.height) p.y = 0;
-        ctx.beginPath();
+      
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = BG_COLOR;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.fillStyle = PARTICLE_COLOR;
+      ctx.beginPath();
+
+      for (const p of particules) {
+        const dx = souris.x - p.x;
+        const dy = souris.y - p.y;
+        const distSq = dx * dx + dy * dy;
+
+        // attraction seulement si proche
+        const attractionForce = distSq < ATTRACTION_RADIUS_SQ
+          ? 0.003 * (1 - Math.sqrt(distSq) / ATTRACTION_RADIUS)
+          : 0;
+
+        p.x += p.vx + dx * attractionForce + (p.baseX - p.x) * 0.001;
+        p.y += p.vy + dy * attractionForce + (p.baseY - p.y) * 0.001;
+
+        if (p.x < 0) p.x = w;
+        else if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        else if (p.y > h) p.y = 0;
+
+        ctx.moveTo(p.x + p.r, p.y);
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(82,113,255,0.25)';
-        ctx.fill();
-      });
+      }
+
+      ctx.fill();
       animationId = requestAnimationFrame(dessiner);
     }
+
+    redim();
+    window.addEventListener('resize', redim);
+    window.addEventListener('mousemove', survol);
     dessiner();
+
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', redim);
       window.removeEventListener('mousemove', survol);
     };
   }, []);
+
   return <canvas ref={ref} className="fond-interactif" aria-hidden />;
 }

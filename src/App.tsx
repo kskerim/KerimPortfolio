@@ -13,22 +13,22 @@ export default function App() {
   const [messageEnvoye, setMessageEnvoye] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
 
-  // Vérifier si le message a été envoyé (succès du formulaire)
+  // vérifier si le message a été envoyé
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
       setMessageEnvoye(true);
       setFadeOut(false);
-      // Nettoyer l'URL
+      // nettoyer l'URL
       window.history.replaceState({}, '', window.location.pathname);
-      // Commencer le fade out après 4.4 secondes
+      // commencer le fade out après 4.4s
       setTimeout(() => setFadeOut(true), 4400);
-      // Masquer complètement après 5 secondes (transition de 0.6s)
+      // masquer après 5s
       setTimeout(() => setMessageEnvoye(false), 5000);
     }
   }, []);
 
-  // Animation au scroll : ajouter classe 'visible' aux sections
+  // animation au scroll
   useEffect(() => {
     const sections = document.querySelectorAll('.section');
     const animObserver = new IntersectionObserver(entries => {
@@ -50,15 +50,15 @@ export default function App() {
     if (!sections.length) return;
     let ticking = false;
     const observer = new IntersectionObserver(entries => {
-      // Choisir l'entrée la plus visible qui dépasse un petit seuil
+      // choisir l'entrée la plus visible
       const visibles = entries.filter(e => e.isIntersecting);
       if (visibles.length) {
-        // Trier par ratio (desc) puis par position verticale (asc)
+        // trier par ratio puis par position
         visibles.sort((a,b) => b.intersectionRatio - a.intersectionRatio || (a.target as HTMLElement).offsetTop - (b.target as HTMLElement).offsetTop);
         const candidat = visibles[0].target.id;
         if (candidat && candidat !== activeId) setActiveId(candidat);
       } else {
-        // Fallback: détecter manuel sur scroll si aucune intersection (ex: en haut ou bas extrême)
+        // fallback si aucune intersection
         if (!ticking) {
           ticking = true;
           requestAnimationFrame(() => {
@@ -82,7 +82,7 @@ export default function App() {
       <FondInteractif />
       <Navigation activeId={activeId} />
       
-      {/* Message de confirmation en haut de la page */}
+      {/* message de confirmation */}
       {messageEnvoye && (
         <div className={`message-succes-global ${fadeOut ? 'fade-out' : ''}`}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="24" height="24">
