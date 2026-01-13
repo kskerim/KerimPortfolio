@@ -11,10 +11,14 @@ export function FondInteractif() {
     if (!ctx) return;
 
     let animationId: number;
-    const PARTICLE_COLOR = 'rgba(82,113,255,0.25)';
-    const BG_COLOR = 'rgba(28,31,78,0.03)';
     const ATTRACTION_RADIUS_SQ = 700 * 700; // évite sqrt à chaque frame
     const ATTRACTION_RADIUS = 700;
+
+    // récupère la couleur depuis les variables css
+    const getParticleColor = () => {
+      return getComputedStyle(document.documentElement)
+        .getPropertyValue('--particules-color').trim() || 'rgba(82,113,255,0.25)';
+    };
 
     const particules = Array.from({ length: 180 }, () => ({
       x: Math.random() * window.innerWidth,
@@ -42,17 +46,24 @@ export function FondInteractif() {
       souris.y = e.clientY;
     };
 
+    let particleColor = getParticleColor();
+    let frameCount = 0;
+
     function dessiner() {
       if (!canvas || !ctx) return;
       
       const w = canvas.width;
       const h = canvas.height;
 
-      ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = BG_COLOR;
-      ctx.fillRect(0, 0, w, h);
+      // mise à jour couleur toutes les 60 frames pour suivre le thème
+      frameCount++;
+      if (frameCount % 60 === 0) {
+        particleColor = getParticleColor();
+      }
 
-      ctx.fillStyle = PARTICLE_COLOR;
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.fillStyle = particleColor;
       ctx.beginPath();
 
       for (const p of particules) {

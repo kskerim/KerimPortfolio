@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 interface Props {
   activeId?: string;
@@ -79,6 +80,7 @@ export function Navigation({ activeId }: Props) {
           ))}
         </ul>
       </nav>
+      <ThemeSwitcher />
     </header>
   );
 }
