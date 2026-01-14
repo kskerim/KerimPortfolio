@@ -20,7 +20,7 @@ export function FondInteractif() {
         .getPropertyValue('--particules-color').trim() || 'rgba(82,113,255,0.25)';
     };
 
-    const particules = Array.from({ length: 180 }, () => ({
+    const particules = Array.from({ length: 220 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       r: 1 + Math.random() * 2.5,
