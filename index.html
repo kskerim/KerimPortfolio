@@ -8,6 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>Portfolio - Kerim Kasikci</title>
+    <script>
+      // appliquer le thème immédiatement pour éviter le flash blanc
+      (function() {
+        try {
+          var stored = localStorage.getItem('kerim-portfolio-theme');
+          if (stored) {
+            var theme = JSON.parse(stored);
+            if (theme.mode) document.documentElement.setAttribute('data-mode', theme.mode);
+            if (theme.palette) document.documentElement.setAttribute('data-palette', theme.palette);
+          } else {
+            document.documentElement.setAttribute('data-mode', 'light');
+            document.documentElement.setAttribute('data-palette', 'sobre');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-mode', 'light');
+          document.documentElement.setAttribute('data-palette', 'sobre');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

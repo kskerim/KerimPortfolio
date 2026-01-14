@@ -153,7 +153,7 @@ export function SectionContact() {
             </div>
           </div>
         </div>,
-        document.body
+        document.documentElement
       )}
 
       {/* Animation étoile filante */}
@@ -161,7 +161,7 @@ export function SectionContact() {
         <div className="shooting-star-overlay">
           <div className="shooting-star"></div>
         </div>,
-        document.body
+        document.documentElement
       )}
     </section>
   );
