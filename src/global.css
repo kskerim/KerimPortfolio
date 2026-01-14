@@ -711,6 +711,14 @@ a:hover { color: var(--couleur-primaire); }
 .tag-outils { background: rgba(255,170,43,0.25); color:#7a4300; }
 .tag-outils:hover { background:#7a4300; color:#fff; }
 
+/* tags en mode sombre - couleurs plus claires */
+[data-mode="dark"] .tag-ux { background: rgba(236,72,153,0.25); color: #f9a8d4; }
+[data-mode="dark"] .tag-ux:hover { background: #ec4899; color: #fff; }
+[data-mode="dark"] .tag-backend { background: rgba(16,185,129,0.25); color: #6ee7b7; }
+[data-mode="dark"] .tag-backend:hover { background: #10b981; color: #fff; }
+[data-mode="dark"] .tag-outils { background: rgba(255,170,43,0.25); color: #fcd34d; }
+[data-mode="dark"] .tag-outils:hover { background: #f59e0b; color: #fff; }
+
 /* timeline expériences & formations */
 .section-chrono .chrono { position:relative; margin-top:2.5rem; }
 .section-chrono .ligne { display:flex; gap:1rem; margin-bottom:2rem; align-items:flex-start; }
@@ -740,12 +748,12 @@ a:hover { color: var(--couleur-primaire); }
 /* panneau missions fixe */
 .section-chrono .ligne.experience { position:relative; }
 /* panneau flottant missions */
-.missions-float { position:fixed; z-index:70; background: var(--card-bg); border:1px solid var(--border-color); border-radius: var(--rayon); box-shadow: var(--ombre-douce); padding:1rem 1.15rem 1.25rem; animation: popIn .25s ease; pointer-events:none; }
+.missions-float { position:fixed; z-index:70; background: var(--card-bg); border:1px solid var(--border-color); border-radius: var(--rayon); box-shadow: var(--ombre-douce); padding:1rem 1.15rem 1.25rem; animation: popIn .25s ease; pointer-events:none; font-family: var(--police-principale); }
 @keyframes popIn { from { opacity:0; transform:translateY(8px) scale(.96);} to { opacity:1; transform:translateY(0) scale(1);} }
 .missions-float:before { content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background: var(--couleur-accent); border-top-left-radius: var(--rayon); border-bottom-left-radius: var(--rayon); }
 .missions-float .missions-titre { margin:0 0 .55rem; font-size:1rem; font-weight:600; color: var(--couleur-primaire); padding-left:.6rem; border-bottom:1px solid var(--border-color); padding-bottom:.45rem; }
 .missions-float .missions-titre span { font-weight:500; color: var(--texte-secondaire); }
-.missions-float .liste-missions { margin:0; padding-left:1.2rem; font-size:.82rem; line-height:1.5; color: var(--texte-principal); }
+.missions-float .liste-missions { margin:0; padding-left:1.2rem; font-size:.92rem; line-height:1.5; color: var(--texte-principal); }
 .missions-float .liste-missions li { margin-bottom:.5rem; list-style:none; position:relative; }
 .missions-float .liste-missions li:before { content:""; position:absolute; left:-0.95rem; top:.55em; width:6px; height:6px; background: var(--couleur-accent); border-radius:50%; box-shadow:0 0 0 4px var(--couleur-gris-clair); }
 @media (max-width: 900px) {
@@ -792,6 +800,16 @@ a:hover { color: var(--couleur-primaire); }
   transform:translateY(0);
 }
 .btn-accent:focus-visible { outline:3px solid var(--couleur-accent); outline-offset:3px; }
+
+/* boutons en mode sombre - texte moins blanc */
+[data-mode="dark"] .btn-accent,
+[data-mode="dark"] .btn-confirmer {
+  color: rgba(255,255,255,0.9);
+}
+[data-mode="dark"][data-palette="contraste"] .btn-accent,
+[data-mode="dark"][data-palette="contraste"] .btn-confirmer {
+  color: rgba(255,255,255,0.85);
+}
 
 /* contact */
 .section-contact .infos-contact { margin-top:1.5rem; font-size:.95rem; line-height:1.6; }

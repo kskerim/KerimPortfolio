@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 interface LigneChrono {
   titre: string;
@@ -72,13 +73,6 @@ const lignes: LigneChrono[] = [
     ]
   },
   {
-    type: 'formation',
-    titre: 'Mastère Expert Développement Web',
-    organisation: 'ESGI',
-    periode: 'Sept. 2026 (à venir)',
-    details: ['Préparation de ma rentrée pour septembre 2026.']
-  },
-  {
     type: 'experience',
     titre: 'Conseiller de vente & accueil clientèle',
     organisation: 'Parc Astérix',
@@ -94,6 +88,13 @@ const lignes: LigneChrono[] = [
       'Travail en équipe dans un environnement dynamique'
     ],
     horsBUT: true
+  },
+  {
+    type: 'formation',
+    titre: 'Mastère Expert Développement Web',
+    organisation: 'ESGI',
+    periode: 'Sept. 2026 (à venir)',
+    details: ['Préparation de ma rentrée pour septembre 2026.']
   }
 ];
 
@@ -127,14 +128,18 @@ export function SectionExperienceFormation() {
   const calcStyle = () => {
     if (hovered === null) return {};
     const w = 380;
-    const hApprox = 260;
+    // estimer la hauteur selon le nombre de missions
+    const missionsCount = lignes[hovered].missions?.length || 0;
+    const hApprox = 100 + missionsCount * 28; // base + ~28px par mission
     const vw = typeof window !== 'undefined' ? window.innerWidth : 0;
     const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
     let left = pos.x + 28;
     if (left + w + 16 > vw) left = vw - w - 16;
-    let top = pos.y - 40;
+    // centrer verticalement par rapport à la souris
+    let top = pos.y - hApprox / 2;
+    // garder dans les limites de l'écran
     if (top + hApprox > vh - 12) top = vh - hApprox - 12;
-    if (top < 12) top = 12;
+    if (top < 80) top = 80; // ne pas dépasser le header
     return { left, top, width: w } as React.CSSProperties;
   };
 
@@ -185,13 +190,14 @@ export function SectionExperienceFormation() {
           );
         })}
       </div>
-      {hovered !== null && lignes[hovered].missions && (
+      {hovered !== null && lignes[hovered].missions && createPortal(
         <div className="missions-float" style={calcStyle()} aria-live="polite">
           <h4 className="missions-titre">{lignes[hovered].organisation} - <span>Missions</span></h4>
           <ul className="liste-missions">
             {lignes[hovered].missions!.map(m => <li key={m}>{m}</li>)}
           </ul>
-        </div>
+        </div>,
+        document.documentElement
       )}
       <div className="centre-action">
         <a href="/Cv_Kerim_Kasikci.pdf" className="btn-accent" target="_blank" rel="noopener noreferrer"><span>Voir mon CV</span></a>
