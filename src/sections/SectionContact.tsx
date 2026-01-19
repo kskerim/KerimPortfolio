@@ -35,15 +35,15 @@ export function SectionContact() {
         }
       });
 
-      // attendre la fin de l'animation
+      // attendre la fin de l'animation (7s pour la fée)
       setTimeout(() => {
         setShowShooting(false);
         // scroll puis redirection
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(() => {
-          window.location.href = 'https://kerim-portfolio-drab.vercel.app/?success=true';
+          window.location.href = '/?success=true';
         }, 800);
-      }, 4000);
+      }, 7000);
     } catch (error) {
       setShowShooting(false);
       alert('Erreur lors de l\'envoi du message');
