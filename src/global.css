@@ -965,11 +965,11 @@ a:hover { color: var(--couleur-primaire); }
 /* boutons en mode sombre - texte moins blanc */
 [data-mode="dark"] .btn-accent,
 [data-mode="dark"] .btn-confirmer {
-  color: rgba(255,255,255,0.95);
+  color: #e5e7eb; /* gris très clair au lieu de blanc pur */
 }
 [data-mode="dark"][data-palette="contraste"] .btn-accent,
 [data-mode="dark"][data-palette="contraste"] .btn-confirmer {
-  color: rgba(255,255,255,0.95);
+  color: #f3f4f6; /* encore un peu plus doux pour contraste */
 }
 
 /* boutons palette creative - fond rose/violet foncé pour meilleur contraste */
