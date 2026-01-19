@@ -11,8 +11,8 @@ export function FondInteractif() {
     if (!ctx) return;
 
     let animationId: number;
-    const ATTRACTION_RADIUS_SQ = 700 * 700; // évite sqrt à chaque frame
-    const ATTRACTION_RADIUS = 700;
+    const ATTRACTION_RADIUS_SQ = 500 * 500; // évite sqrt à chaque frame
+    const ATTRACTION_RADIUS = 500;
 
     // récupère la couleur depuis les variables css
     const getParticleColor = () => {
@@ -73,7 +73,7 @@ export function FondInteractif() {
 
         // attraction seulement si proche
         const attractionForce = distSq < ATTRACTION_RADIUS_SQ
-          ? 0.003 * (1 - Math.sqrt(distSq) / ATTRACTION_RADIUS)
+          ? 0.0025 * (1 - Math.sqrt(distSq) / ATTRACTION_RADIUS)
           : 0;
 
         p.x += p.vx + dx * attractionForce + (p.baseX - p.x) * 0.001;
