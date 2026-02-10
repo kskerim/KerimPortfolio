@@ -688,7 +688,143 @@ a:hover { color: var(--couleur-primaire); }
 .texte-intro-projets { max-width:820px; margin:0 auto 2.4rem; color: var(--texte-secondaire); font-size:.95rem; line-height:1.55; }
 .grille-projets-2col { display:grid; grid-template-columns:repeat(auto-fit, minmax(420px,1fr)); gap:2.6rem 2.4rem; width:100%; max-width:1200px; }
 @media (max-width:950px){ .grille-projets-2col { grid-template-columns:1fr; } }
-/* cartes projets avec transitions fluides */
+/* cartes projets v2 */
+.carte-projet-v2 {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--rayon-projet);
+  padding: 1.8rem 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  box-shadow: var(--ombre-douce);
+}
+.carte-projet-v2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px -8px rgba(82,113,255,0.2);
+  border-color: var(--couleur-accent);
+}
+.carte-projet-v2:focus-visible { outline: 2px solid var(--couleur-accent); outline-offset: 4px; }
+
+/* header avec titre + liens */
+.carte-projet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.titre-projet-v2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--couleur-primaire);
+  letter-spacing: .2px;
+}
+.sous-titre-projet {
+  margin: .25rem 0 0;
+  font-size: .82rem;
+  color: var(--texte-secondaire);
+  font-weight: 500;
+}
+
+/* liens projet (boutons icônes) */
+.liens-projet {
+  display: flex;
+  gap: .5rem;
+  flex-shrink: 0;
+}
+.lien-projet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: var(--couleur-gris-clair);
+  color: var(--couleur-primaire);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .45rem .75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all .25s ease;
+  border: 1px solid transparent;
+  letter-spacing: .3px;
+}
+.lien-projet-btn svg { font-size: .8rem; }
+.lien-projet-btn:hover {
+  background: var(--couleur-accent);
+  color: #fff;
+  border-color: var(--couleur-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(82,113,255,0.3);
+}
+
+/* rôle */
+.role-projet {
+  margin: 0;
+  font-size: .8rem;
+  color: var(--couleur-accent);
+  line-height: 1.5;
+}
+.role-projet strong {
+  color: var(--texte-principal);
+  font-weight: 600;
+}
+
+/* description */
+.desc-projet-v2 {
+  margin: 0;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--texte-secondaire);
+}
+
+/* points forts */
+.points-projet {
+  margin: .2rem 0 0;
+  padding-left: 1.1rem;
+  font-size: .8rem;
+  line-height: 1.6;
+  color: var(--texte-secondaire);
+}
+.points-projet li {
+  margin-bottom: .3rem;
+  position: relative;
+  list-style: none;
+}
+.points-projet li::before {
+  content: '▹';
+  position: absolute;
+  left: -1rem;
+  color: var(--couleur-accent);
+  font-weight: 700;
+}
+
+/* tags compétences v2 */
+.tags-projet-v2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: .4rem;
+  padding-top: .6rem;
+  border-top: 1px solid var(--border-color);
+}
+.tag-projet-v2 {
+  background: var(--couleur-gris-clair);
+  color: var(--texte-principal);
+  font-size: .65rem;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  letter-spacing: .3px;
+  font-weight: 500;
+  transition: all .2s ease;
+}
+.tag-projet-v2:hover {
+  background: var(--couleur-accent);
+  color: #fff;
+}
+
+/* cartes projets adv (ancienne version — on garde pour compat) */
 .carte-projet-adv { 
   background: var(--card-bg); 
   border:1px solid var(--border-color); 

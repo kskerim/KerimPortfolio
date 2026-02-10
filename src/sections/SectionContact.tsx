@@ -94,7 +94,7 @@ export function SectionContact() {
                 </svg>
               </span>
               <div>
-                <span>Sarcelles, France 95200</span>
+                <span>Paris, France</span>
               </div>
             </li>
           </ul>
