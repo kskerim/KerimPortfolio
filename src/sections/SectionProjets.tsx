@@ -1,12 +1,12 @@
 ﻿import React, { useState } from 'react';
-import { FaExternalLinkAlt, FaGithub, FaFigma } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
-type TypeProjet = 'pro' | 'jeux';
+type TypeProjet = 'web' | 'jeux';
 
 interface LienProjet {
   url: string;
   label: string;
-  icone: 'site' | 'github' | 'figma';
+  icone: 'site' | 'github';
 }
 
 interface Projet {
@@ -22,116 +22,160 @@ interface Projet {
 }
 
 const projets: Projet[] = [
+  /* ── Sites & applications web ── */
   {
-    type: 'pro',
+    type: 'web',
     titre: 'MétéoWeb',
     sousTitre: 'Application météo complète et moderne',
-    description: 'Application météo construite avec Next.js 16 et l\'API Open-Meteo. Architecture propre, UI soignée et meilleures pratiques de développement.',
+    description: 'Application météo interactive avec carte de France, recherche de villes, prévisions horaires et 7 jours, système de favoris et thème clair/sombre.',
     role: 'Développeur Full-stack',
-    image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80',
-    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'Framer Motion', 'Recharts', 'Zod', 'Vitest', 'PWA'],
+    image: '/images/projets/meteoweb.png',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Framer Motion', 'Recharts', 'Zod', 'Vitest', 'PWA'],
     liens: [
+      { url: 'https://meteoweb-ashy.vercel.app', label: 'Voir le site', icone: 'site' },
       { url: 'https://github.com/kskerim/meteoweb', label: 'GitHub', icone: 'github' }
     ],
     points: [
-      'Recherche de villes avec auto-complétion et historique',
-      'Prévisions horaires 48h avec graphiques interactifs',
-      'Système de favoris, unités configurables, thème clair/sombre',
-      'PWA installable, fond dynamique selon météo'
+      'Carte interactive avec températures en temps réel',
+      'Prévisions horaires 48 h avec graphiques Recharts',
+      'PWA installable, favoris, unités configurables',
+      'CI/CD GitHub Actions, tests Vitest & Playwright'
     ]
   },
   {
-    type: 'pro',
-    titre: 'Pokédex 151',
-    sousTitre: 'Site des 151 premiers Pokémon',
-    description: 'Conception et développement en groupe du site complet dédié aux 151 premiers Pokémon avec fiches détaillées, filtres et design immersif.',
-    role: 'Développeur front-end',
-    image: 'https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?auto=format&fit=crop&w=800&q=80',
-    tags: ['Vite', 'JavaScript', 'JSON', 'Tailwind CSS'],
-    liens: [
-      { url: 'https://sae-s6.vercel.app/', label: 'Voir le site', icone: 'site' }
-    ]
-  },
-  {
-    type: 'pro',
-    titre: 'Platopark',
-    sousTitre: 'Découverte & réservation de jeux de société',
-    description: 'Conception UI/UX d\'un site de découverte et de réservation d\'expériences autour des jeux de société, avec catalogue, fiches détaillées et tunnel de réservation.',
-    role: 'UI/UX Designer — Conception Figma',
-    image: 'https://images.unsplash.com/photo-1606503153255-59d8b8b82176?auto=format&fit=crop&w=800&q=80',
-    tags: ['Figma', 'UX Research', 'Wireframes', 'Prototypage', 'Design System', 'Composants UI'],
-    liens: [
-      { url: 'https://www.figma.com/design/bVsNHCpmdTT9oSHhd5PA6l/Platopark_Projet_Kerim?node-id=0-1&t=HN4zQtSpVPhEE9Fx-1', label: 'Figma', icone: 'figma' }
-    ],
-    points: [
-      'Tunnel de réservation guidé avec récapitulatif',
-      'Composants UI réutilisables (tabs, cards, chips, calendrier)',
-      'Pensée component-based, états d\'interface prévus'
-    ]
-  },
-  {
-    type: 'pro',
-    titre: 'SweetMetrics',
-    sousTitre: 'Comparateur nutritionnel de bonbons',
-    description: 'Comparateur de valeurs nutritionnelles et statistiques diverses sur les bonbons avec visualisation de données interactive.',
-    role: 'Développeur front-end & data viz',
-    image: 'https://images.unsplash.com/photo-1563262924-641a8b3d1fe4?auto=format&fit=crop&w=800&q=80',
-    tags: ['JavaScript', 'Chart.js', 'JSON', 'HTML', 'CSS'],
-    liens: [
-      { url: 'https://sokbc.github.io/SAE303/', label: 'Voir le site', icone: 'site' }
-    ]
-  },
-  {
-    type: 'pro',
+    type: 'web',
     titre: 'Asso. Professeurs d\'Italien',
-    sousTitre: 'Refonte du site de l\'association',
-    description: 'Refonte complète d\'un site en React pour l\'Association des Professeurs d\'Italien de la Région Parisienne avec charte éditoriale et SEO.',
-    role: 'Développeur React & SEO',
-    image: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80',
-    tags: ['React', 'JavaScript', 'SEO', 'Charte éditoriale', 'Responsive'],
+    sousTitre: 'Refonte du site de l\'APIRP en React',
+    description: 'Refonte complète du site de l\'Association des Professeurs d\'Italien de la Région Parisienne : pages dynamiques, forum, actualités et activités culturelles.',
+    role: 'Développeur React',
+    image: '/images/projets/sae401.png',
+    tags: ['React', 'JavaScript', 'HTML', 'CSS', 'Create React App'],
     liens: [
-      { url: 'https://sae-401-eight.vercel.app/', label: 'Voir le site', icone: 'site' }
+      { url: 'https://sae-401-eight.vercel.app', label: 'Voir le site', icone: 'site' },
+      { url: 'https://github.com/kskerim/SAE-401', label: 'GitHub', icone: 'github' }
     ],
     points: [
-      'Création de pages web complètes',
-      'Rédaction d\'une charte éditoriale',
-      'Techniques SEO pour la visibilité'
+      'Pages Accueil, Forum, Activités, Promouvoir',
+      'Contenu éditorial structuré avec actualités',
+      'Projet universitaire réalisé en binôme'
     ]
   },
   {
-    type: 'pro',
-    titre: 'EARZ\'',
-    sousTitre: 'Agence de com\' pour start-ups',
-    description: 'Agence de communication dédiée aux start-ups. Stratégie marketing, design graphique et création de sites web.',
-    role: 'Dev WordPress & UI/UX Designer',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
-    tags: ['WordPress', 'Figma', 'SEO', 'UX/UI', 'Plugins'],
+    type: 'web',
+    titre: 'Pokédex 151',
+    sousTitre: 'Encyclopédie des 151 premiers Pokémon',
+    description: 'Application web listant les 151 Pokémon originaux avec fiches détaillées, navigation fluide et pipeline CI/CD complet.',
+    role: 'Développeur front-end',
+    image: '/images/projets/pokedex.png',
+    tags: ['JavaScript', 'HTML', 'CSS', 'Webpack', 'Jest', 'ESLint', 'GitHub Actions'],
     liens: [
-      { url: 'https://earz.infinityfreeapp.com/?i=2', label: 'Voir le site', icone: 'site' }
+      { url: 'https://full-stack-open-pokedex-steel.vercel.app', label: 'Voir le site', icone: 'site' },
+      { url: 'https://github.com/kskerim/full-stack-open-pokedex', label: 'GitHub', icone: 'github' }
     ],
     points: [
-      'Gestion de sites WordPress avec plugins avancés',
-      'Conception de maquettes Figma',
-      'Visibilité web +25% grâce au SEO'
+      'Liste complète avec sprites et détails par Pokémon',
+      'Pipeline CI/CD GitHub Actions (lint, test, deploy)',
+      'Basé sur le cours Full Stack Open (Université d\'Helsinki)'
+    ]
+  },
+
+  /* ── Mini-jeux ── */
+  {
+    type: 'jeux',
+    titre: 'Casse-Briques',
+    sousTitre: 'Brick Breaker arcade rétro',
+    description: 'Jeu de casse-briques complet avec 636 briques par niveau, système de bonus, vies, niveaux progressifs et architecture orientée objet.',
+    role: 'Développeur front-end',
+    image: '/images/projets/casse-briques.png',
+    tags: ['JavaScript', 'HTML5 Canvas', 'HTML', 'CSS', 'OOP'],
+    liens: [
+      { url: 'https://casse-briques-murex.vercel.app', label: 'Jouer', icone: 'site' },
+      { url: 'https://github.com/kskerim/Casse-Briques', label: 'GitHub', icone: 'github' }
+    ],
+    points: [
+      '636 briques par niveau, niveaux progressifs',
+      '12+ types de bonus (multi-balle, laser, agrandissement…)',
+      'Architecture OOP : Ball, Paddle, Brick, Bonus, GameManager'
+    ]
+  },
+  {
+    type: 'jeux',
+    titre: 'Blob Merge',
+    sousTitre: 'Jeu d\'absorption avec génération procédurale',
+    description: 'Contrôlez un blob et absorbez les plus petits pour grandir. Génération procédurale d\'ennemis, Web Audio API pour les effets sonores et UI glassmorphism.',
+    role: 'Développeur front-end',
+    image: '/images/projets/blob.png',
+    tags: ['JavaScript', 'HTML5 Canvas', 'Web Audio API', 'HTML', 'CSS'],
+    liens: [
+      { url: 'https://blob-jeu.vercel.app', label: 'Jouer', icone: 'site' },
+      { url: 'https://github.com/kskerim/Blob-Jeu', label: 'GitHub', icone: 'github' }
+    ],
+    points: [
+      'Génération procédurale d\'ennemis en temps réel',
+      'Effets sonores dynamiques via Web Audio API',
+      'Interface glassmorphism, responsive et mobile'
+    ]
+  },
+  {
+    type: 'jeux',
+    titre: 'Snake',
+    sousTitre: 'Le classique revisité en HTML5',
+    description: 'Jeu du serpent classique avec contrôles clavier et souris/tactile, score et meilleur score sauvegardé, design responsive.',
+    role: 'Développeur front-end',
+    image: '/images/projets/snake.png',
+    tags: ['JavaScript', 'HTML5 Canvas', 'HTML', 'CSS'],
+    liens: [
+      { url: 'https://snake-jeu.vercel.app', label: 'Jouer', icone: 'site' },
+      { url: 'https://github.com/kskerim/Snake-Jeu', label: 'GitHub', icone: 'github' }
+    ],
+    points: [
+      'Contrôles clavier + souris/tactile',
+      'Score persistant avec meilleur score',
+      'Game over avec relance instantanée (R ou clic)'
+    ]
+  },
+  {
+    type: 'jeux',
+    titre: 'Morpion',
+    sousTitre: 'Tic-Tac-Toe classique',
+    description: 'Jeu de morpion pour deux joueurs en local, avec détection automatique de victoire et possibilité de recommencer.',
+    role: 'Développeur front-end',
+    image: '/images/projets/morpion.png',
+    tags: ['JavaScript', 'HTML', 'CSS'],
+    liens: [
+      { url: 'https://morpion-tic-tac-toe.vercel.app', label: 'Jouer', icone: 'site' },
+      { url: 'https://github.com/kskerim/Morpion-TicTacToe', label: 'GitHub', icone: 'github' }
+    ]
+  },
+  {
+    type: 'jeux',
+    titre: 'CPS Test',
+    sousTitre: 'Test de clics par seconde',
+    description: 'Mesurez votre vitesse de clic en 6 secondes. Score final affiché avec popup et possibilité de recommencer.',
+    role: 'Développeur front-end',
+    image: '/images/projets/cps.jpg',
+    tags: ['JavaScript', 'HTML', 'CSS'],
+    liens: [
+      { url: 'https://cps-test-de-clic-par-seconde.vercel.app', label: 'Jouer', icone: 'site' },
+      { url: 'https://github.com/kskerim/CPS-TestDeClicParSeconde', label: 'GitHub', icone: 'github' }
     ]
   }
 ];
 
 const iconeMap = {
   site: FaExternalLinkAlt,
-  github: FaGithub,
-  figma: FaFigma
+  github: FaGithub
 };
 
 export function SectionProjets() {
-  const [vue, setVue] = useState<TypeProjet>('pro');
-  const basculer = () => setVue(vue === 'pro' ? 'jeux' : 'pro');
+  const [vue, setVue] = useState<TypeProjet>('web');
+  const basculer = () => setVue(vue === 'web' ? 'jeux' : 'web');
   const projetsFiltres = projets.filter(p => p.type === vue);
 
   return (
     <section id="projets" className="section section-centre section-projets">
       <h2 className="titre-section">Projets</h2>
-      <p className="texte-intro-projets">Quelques réalisations classées entre mini-jeux exploratoires et projets plus structurés / académiques.</p>
+      <p className="texte-intro-projets">Quelques réalisations classées entre sites & applications web et mini-jeux exploratoires.</p>
 
       <div className="filtres-projets unique">
         <button
@@ -139,9 +183,9 @@ export function SectionProjets() {
           className="btn-filtre-projet actif"
           onClick={basculer}
           aria-pressed={vue === 'jeux'}
-          aria-label={vue === 'pro' ? 'Afficher les mini-jeux' : 'Afficher les projets professionnels'}
+          aria-label={vue === 'web' ? 'Afficher les mini-jeux' : 'Afficher les sites & applications web'}
         >
-          <span>{vue === 'pro' ? ' Voir Minijeux' : ' Voir Pro / Académiques'}</span>
+          <span>{vue === 'web' ? 'Voir Mini-jeux' : 'Voir Sites & Applications'}</span>
         </button>
       </div>
 
@@ -150,7 +194,7 @@ export function SectionProjets() {
           key={vue}
           className="grille-projets-v2 liste-projets"
           aria-live="polite"
-          aria-label={vue === 'pro' ? 'Projets professionnels et académiques' : 'Mini-jeux'}
+          aria-label={vue === 'web' ? 'Sites & applications web' : 'Mini-jeux'}
         >
           {projetsFiltres.map((p, idx) => (
             <article key={p.titre} className="carte-projet-v2" tabIndex={0} data-index={idx}>
