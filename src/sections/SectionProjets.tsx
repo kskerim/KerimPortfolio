@@ -153,7 +153,7 @@ const projets: Projet[] = [
     sousTitre: 'Test de clics par seconde',
     description: 'Mesurez votre vitesse de clic en 6 secondes. Score final affiché avec popup et possibilité de recommencer.',
     role: 'Développeur front-end',
-    image: '/images/projets/cps.jpg',
+    image: '/images/projets/cps.png',
     tags: ['JavaScript', 'HTML', 'CSS'],
     liens: [
       { url: 'https://cps-test-de-clic-par-seconde.vercel.app', label: 'Jouer', icone: 'site' },
