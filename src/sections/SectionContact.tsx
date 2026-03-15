@@ -110,7 +110,7 @@ export function SectionContact() {
             </div>
             <div className="contact-hero-main">
               <strong>Kerim Kasikci</strong>
-              <span>Développeur web • Paris · Hybride</span>
+              <span style={{ maxWidth: '100%', whiteSpace: 'nowrap' }}>Développeur web • Île-de-France · Hybride</span>
             </div>
           </div>
 
