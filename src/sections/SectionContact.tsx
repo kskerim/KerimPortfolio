@@ -6,10 +6,16 @@ export function SectionContact() {
   const [showShooting, setShowShooting] = useState(false);
   const [formData, setFormData] = useState<FormData | null>(null);
   const [formSpotlight, setFormSpotlight] = useState({ x: 72, y: 18 });
+  const [infoSpotlight, setInfoSpotlight] = useState({ x: 72, y: 18 });
 
   const spotlightStyle = {
     '--spot-x': `${formSpotlight.x}%`,
     '--spot-y': `${formSpotlight.y}%`
+  } as React.CSSProperties;
+
+  const infoSpotlightStyle = {
+    '--spot-x': `${infoSpotlight.x}%`,
+    '--spot-y': `${infoSpotlight.y}%`
   } as React.CSSProperties;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -72,6 +78,17 @@ export function SectionContact() {
     setFormSpotlight({ x: 72, y: 18 });
   };
 
+  const handleInfoMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setInfoSpotlight({ x, y });
+  };
+
+  const handleInfoMouseLeave = () => {
+    setInfoSpotlight({ x: 72, y: 18 });
+  };
+
   return (
     <section id="contact" className="section section-contact section-centre">
       <h2 className="titre-section">Contactez-moi</h2>
@@ -79,7 +96,12 @@ export function SectionContact() {
       
       <div className="grille-contact">
         {/* Carte infos */}
-        <div className="carte-contact infos">
+        <div 
+          className="carte-contact infos spotlight-form"
+          onMouseMove={handleInfoMouseMove}
+          onMouseLeave={handleInfoMouseLeave}
+          style={{ ...infoSpotlightStyle, overflow: 'hidden' }}
+        >
           <h3>Informations de contact</h3>
 
           <div className="contact-hero">
