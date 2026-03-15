@@ -44,24 +44,6 @@ const projets: Projet[] = [
   },
   {
     type: 'web',
-    titre: 'Asso. Professeurs d\'Italien',
-    sousTitre: 'Refonte du site de l\'APIRP en React',
-    description: 'Refonte complète du site de l\'Association des Professeurs d\'Italien de la Région Parisienne : pages dynamiques, forum, actualités et activités culturelles.',
-    role: 'Développeur React',
-    image: '/images/projets/sae401.png',
-    tags: ['React', 'JavaScript', 'HTML', 'CSS', 'Create React App'],
-    liens: [
-      { url: 'https://sae-401-eight.vercel.app', label: 'Voir le site', icone: 'site' },
-      { url: 'https://github.com/kskerim/SAE-401', label: 'GitHub', icone: 'github' }
-    ],
-    points: [
-      'Pages Accueil, Forum, Activités, Promouvoir',
-      'Contenu éditorial structuré avec actualités',
-      'Projet universitaire réalisé en binôme'
-    ]
-  },
-  {
-    type: 'web',
     titre: 'Pokédex 151',
     sousTitre: 'Encyclopédie des 151 premiers Pokémon',
     description: 'Application web listant les 151 Pokémon originaux avec fiches détaillées, navigation fluide et pipeline CI/CD complet.',
@@ -76,6 +58,24 @@ const projets: Projet[] = [
       'Liste complète avec sprites et détails par Pokémon',
       'Pipeline CI/CD GitHub Actions (lint, test, deploy)',
       'Basé sur le cours Full Stack Open (Université d\'Helsinki)'
+    ]
+  },
+  {
+    type: 'web',
+    titre: 'Asso. Professeurs d\'Italien',
+    sousTitre: 'Refonte du site de l\'APIRP en React',
+    description: 'Refonte complète du site de l\'Association des Professeurs d\'Italien de la Région Parisienne : pages dynamiques, forum, actualités et activités culturelles.',
+    role: 'Développeur React',
+    image: '/images/projets/sae401.png',
+    tags: ['React', 'JavaScript', 'HTML', 'CSS', 'Create React App'],
+    liens: [
+      { url: 'https://sae-401-eight.vercel.app', label: 'Voir le site', icone: 'site' },
+      { url: 'https://github.com/kskerim/SAE-401', label: 'GitHub', icone: 'github' }
+    ],
+    points: [
+      'Pages Accueil, Forum, Activités, Promouvoir',
+      'Contenu éditorial structuré avec actualités',
+      'Projet universitaire réalisé en binôme'
     ]
   },
 
