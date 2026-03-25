@@ -25,6 +25,44 @@ const projets: Projet[] = [
   /* ── Sites & applications web ── */
   {
     type: 'web',
+    titre: 'AgencEvent',
+    sousTitre: 'Site vitrine pour une entreprise generale du batiment',
+    description: 'Site vitrine moderne presentant les services de l\'entreprise, les realisations avec comparaisons avant/apres, une carte interactive des zones d\'intervention, des temoignages clients et les coordonnees de contact.',
+    role: 'Developpeur front-end',
+    image: '/images/projets/agencevent.png',
+    tags: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React-Leaflet', 'Leaflet', 'Lucide React'],
+    liens: [
+      { url: 'https://agenc-event.vercel.app', label: 'Voir le site', icone: 'site' },
+      { url: 'https://github.com/kskerim/AgencEvent', label: 'GitHub', icone: 'github' }
+    ],
+    points: [
+      'Mode sombre complet avec carte Leaflet adaptative',
+      'Animations avancees : tilt 3D, compteurs au scroll, texte mot par mot',
+      'Slider realisations avant/apres avec defilement automatique',
+      'Carrousel temoignages infini et effet curseur lumineux'
+    ]
+  },
+  {
+    type: 'web',
+    titre: 'Axiome',
+    sousTitre: 'Application de gestion de finances personnelles',
+    description: 'Application web complète pour suivre ses revenus et dépenses, visualiser l\'évolution de son solde, gérer ses budgets par catégorie et recevoir des alertes intelligentes sur ses habitudes.',
+    role: 'Développeur Full-stack',
+    image: '/images/projets/axiome.png',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Supabase', 'Recharts', 'React Hook Form', 'Zod', 'Radix UI'],
+    liens: [
+      { url: 'https://axiome-six.vercel.app', label: 'Voir le site', icone: 'site' },
+      { url: 'https://github.com/kskerim/axiome', label: 'GitHub', icone: 'github' }
+    ],
+    points: [
+      'Tableau de bord avec KPI, graphiques et jauges de budget',
+      'Moteur d\'analyse IA : alertes automatiques sur les habitudes',
+      'Authentification Supabase + mode simulation sans compte',
+      'Row Level Security : chaque utilisateur isolé côté base'
+    ]
+  },
+  {
+    type: 'web',
     titre: 'MétéoWeb',
     sousTitre: 'Application météo complète et moderne',
     description: 'Application météo interactive avec carte de France, recherche de villes, prévisions horaires et 7 jours, système de favoris et thème clair/sombre.',
