@@ -3,7 +3,7 @@ import {
   SiHtml5, SiJavascript, SiTypescript, SiReact, SiAngular, SiVuedotjs, SiNextdotjs,
   SiBootstrap, SiTailwindcss, SiVite, SiFigma, SiAdobexd, SiPython, SiPhp, 
   SiKotlin, SiMysql, SiMongodb, SiSymfony, SiGit, 
-  SiWordpress, SiVscodium, SiJirasoftware
+  SiWordpress, SiVscodium, SiJirasoftware, SiSupabase
 } from 'react-icons/si';
 import { FaGitlab } from 'react-icons/fa';
 
@@ -25,7 +25,7 @@ const categories: Categorie[] = [
     titre: 'Back-end',
     type: 'backend',
     items: [
-      'Python', 'PHP', 'C#', 'Kotlin', 'MySQL', 'MongoDB', 'Symfony'
+      'Python', 'PHP', 'C#', 'Kotlin', 'MySQL', 'MongoDB', 'Supabase', 'Symfony'
     ]
   },
   {
@@ -112,6 +112,8 @@ function getIconFor(label: string) {
       return SiMysql;
     case 'MongoDB':
       return SiMongodb;
+    case 'Supabase':
+      return SiSupabase;
     case 'Symfony':
       return SiSymfony;
     case 'Git/GitHub':
